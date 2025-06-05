@@ -1,2 +1,2 @@
 # requirements.txt
-# (No external dependencies for now; Tkinter is in the Python stdlib.)
+# (No external dependencies at the moment; Tkinter is part of the Python standard library)
