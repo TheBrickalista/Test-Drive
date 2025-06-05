@@ -21,7 +21,7 @@ setup(
     install_requires=[],             # no external dependencies (tkinter is in stdlib)
     entry_points={
         "console_scripts": [
-            "td=Testdrive.td:main"   # installs a `td` CLI that calls testdrive.td.main()
+            "td=Testdrive.TD:main"   # installs a `td` CLI that calls testdrive.td.main()
         ]
     },
 )
