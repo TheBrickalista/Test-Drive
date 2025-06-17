@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="brickalistest",                # PyPI name (must be all lowercase, no hyphens)
-    version="0.1.0",                 # bump on each release
+    version="0.2.0",                 # bump on each release
     author="Your Name",
     author_email="you@example.com",
     description="A simple Tkinter demo: Test Drive window",
