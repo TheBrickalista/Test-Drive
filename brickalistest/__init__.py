@@ -5,5 +5,5 @@
 # Created by Etienne Boulter.
 
 
-# Testdrive/__init__.py
+# brickalistest/__init__.py
 
