@@ -2,14 +2,14 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="testdrive",                # PyPI name (must be all lowercase, no hyphens)
+    name="brickalistest",                # PyPI name (must be all lowercase, no hyphens)
     version="0.1.0",                 # bump on each release
     author="Your Name",
     author_email="you@example.com",
     description="A simple Tkinter demo: Test Drive window",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/YourUser/Test-Drive",  # update to your URL
+    url="https://github.com/TheBrickalista/Test-Drive",  # update to your URL
     license="GPLv3",                 # since you chose GPLv3
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -21,7 +21,7 @@ setup(
     install_requires=[],             # no external dependencies (tkinter is in stdlib)
     entry_points={
         "console_scripts": [
-            "td=Testdrive.TD:main"   # installs a `td` CLI that calls testdrive.td.main()
+            "td=brickalistest.TD:main"   # installs a `td` CLI that calls testdrive.td.main()
         ]
     },
 )
