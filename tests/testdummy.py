@@ -1,11 +1,11 @@
 #
-#  test_dummy.py
+#  testdummy.py
 #  
 #
 #  Created by Etienne Boulter on 05/06/2025.
 #
 
-# tests/test_dummy.py
+# tests/testdummy.py
 
 def test_smoke():
     # Dummy test: always passes
