@@ -8,7 +8,7 @@ readme      = "README.md"
 
 # Tell Poetry to include your Brickalistest folder as a package:
 packages = [
-  { include = "Brickalistest" }
+  { include = "brickalistest" }
 ]
 
 [tool.poetry.dependencies]
@@ -21,7 +21,7 @@ coverage = "^7.4"
 
 [tool.poetry.scripts]
 # Installs a `brickalistest` CLI pointing to your main():
-brickalistest = "Brickalistest.TD:main"
+brickalistest = "brickalistest.TD:main"
 
 [build-system]
 requires    = ["poetry-core>=1.8"]
