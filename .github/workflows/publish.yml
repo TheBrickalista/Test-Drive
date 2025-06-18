@@ -21,7 +21,7 @@ jobs:
           cache: "poetry"
 
       - name: Install Poetry
-        run: pipx install poetry
+        run: pip install poetry
 
       - name: Build and publish to PyPI
         uses: JRubics/poetry-publish@v1.13
