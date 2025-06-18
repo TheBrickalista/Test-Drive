@@ -1,13 +1,12 @@
-# Test-Drive Demo
+# Test-Drive
 
-This is a small practice repository (“Test-Drive”) containing a simple Python script that opens a colored window with the text **“Test Drive”** centered in it. It uses the Tkinter library, which is included in the Python standard library.
+A minimal Python package that launches a colored Tkinter window with “Test Drive” centered.  
+Installed name: `brickalistest`  
+Console script: `td`
 
-## How to Run
+## Installation
 
-1. Make sure you have Python 3 installed (Tkinter comes bundled with most Python distributions).  
-2. In your terminal, navigate to this repo’s root directory.  
-3. (Optional) It’s best practice to create a virtual environment:
+1. Clone this repository (or install directly from PyPI once published):
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate    # macOS/Linux
-   venv\Scripts\activate       # Windows
+   git clone https://github.com/TheBrickalista/Test-Drive.git
+   cd Test-Drive
