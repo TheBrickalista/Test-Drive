@@ -38,7 +38,7 @@ jobs:
 
       # 5) Install your package plus dev-deps (pytest, coverage…)
       - name: Install dependencies
-        run: poetry install --with dev
+        run: poetry install
 
       # 6a) Run your tests
       - name: Run pytest
