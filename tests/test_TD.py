@@ -9,8 +9,10 @@ def test_main_runs(monkeypatch):
     # Stub out tkinter.Tk so this never pops open a real window
     class DummyTk:
         def __init__(self):
-            # tkinter.Label will look for master.tk, so point it back at ourselves
+            # tkinter.Label does master.tk and master._last_child_ids
             self.tk = self
+            self._last_child_ids = {}
+
         def title(self, *a, **kw): pass
         def configure(self, *a, **kw): pass
         def geometry(self, *a, **kw): pass
