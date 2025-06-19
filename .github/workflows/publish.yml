@@ -1,6 +1,5 @@
-name: 🚀 Publish to PyPI
-permissions:
-  contents: read
+# .github/workflows/publish.yml
+name: 📦 Publish Python Package
 
 on:
   release:
@@ -8,24 +7,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: "poetry"
-
-      - name: Install Poetry
-        uses: knowsuchagency/poetry-install@v2
-        with:
-          create-virtualenv: false    # install Poetry globally so JRubics/poetry-publish can find it
-
+      # v2 of the action will install both Python & Poetry for you
       - name: Build and publish to PyPI
-        uses: JRubics/poetry-publish@v1.13
+        uses: JRubics/poetry-publish@v2.1   # ← bump to v2.x
         with:
           pypi_token: ${{ secrets.PYPI_TOKEN }}
+          # optional overrides:
+          # python_version: "3.11"
+          # poetry_version: "1.8.1"
