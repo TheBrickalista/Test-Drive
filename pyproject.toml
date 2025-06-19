@@ -1,6 +1,6 @@
 [tool.poetry]
 name        = "brickalistest"         # normalized package name on PyPI
-version     = "0.2.1"                 # bump for each release
+version     = "0.4.7"                 # bump for each release
 description = "Just a test"
 authors     = ["Etienne Boulter <you@example.com>"]
 license     = "GPL-3.0-or-later"
