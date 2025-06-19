@@ -14,7 +14,7 @@ def test_main_runs(monkeypatch):
         td.tk,
         "Label",
         lambda *args, **kwargs: type("L", (), {"pack": lambda self, **k: None})()
-+    )
+    )
 
     # Should execute without error or hanging
     assert td.main() is None
