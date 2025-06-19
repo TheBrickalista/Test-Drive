@@ -15,7 +15,8 @@ def test_main_runs(monkeypatch):
     lambda: type("D", (), {
         "mainloop": lambda self: None,
         "title": lambda self, *a, **k: None,
-        "configure": lambda self, *a, **k: None   # <-- Add this line
+        "configure": lambda self, *a, **k: None,
+        "geometry": lambda self, *a, **k: None,  # <-- Add this line
     })()
 )
     monkeypatch.setattr(
