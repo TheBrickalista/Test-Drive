@@ -1,21 +1,21 @@
-#
-# testdrive/td.py
-
-import Brickalistest.TD as td
+# tests/test_td.py
+import brickalistest.TD as td
 
 def test_import():
-    # smoke-test: module loads and has main()
-    assert hasattr(td, "main")
+    # Module imports and has the main() entrypoint
+    assert hasattr(td, "main") and callable(td.main)
 
 def test_main_runs(monkeypatch):
-    # monkey-patch tk.Tk so it never opens a window
+    # Stub out tkinter.Tk so this never pops open a real window
     class DummyTk:
         def __init__(self): pass
-        def title(self, *args): pass
-        def configure(self, *args): pass
-        def geometry(self, *args): pass
+        def title(self, *a, **kw): pass
+        def configure(self, *a, **kw): pass
+        def geometry(self, *a, **kw): pass
         def mainloop(self): pass
 
+    # Monkey-patch td.tk.Tk to our dummy
     monkeypatch.setattr(td.tk, "Tk", DummyTk)
-    # should return None and not hang
+
+    # Should execute without error or hanging
     assert td.main() is None
