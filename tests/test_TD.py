@@ -8,7 +8,9 @@ def test_import():
 def test_main_runs(monkeypatch):
     # Stub out tkinter.Tk so this never pops open a real window
     class DummyTk:
-        def __init__(self): pass
+        def __init__(self):
+            # tkinter.Label will look for master.tk, so point it back at ourselves
+            self.tk = self
         def title(self, *a, **kw): pass
         def configure(self, *a, **kw): pass
         def geometry(self, *a, **kw): pass
