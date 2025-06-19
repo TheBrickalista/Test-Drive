@@ -1,6 +1,9 @@
 # .github/workflows/publish.yml
 name: 📦 Publish Python Package
 
+permissions:
+  contents: read
+
 on:
   release:
     types: [created]
