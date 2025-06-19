@@ -9,9 +9,14 @@ def test_main_runs(monkeypatch):
     # Stub out tkinter.Tk so this never pops open a real window
     class DummyTk:
         def __init__(self):
-            # tkinter.Label does master.tk and master._last_child_ids
+            # make tkinter.Label happy:
+            #  - it reads master.tk
+            #  - it tracks child counts in master._last_child_ids
+            #  - and it uses master._w as the widget’s Tcl name
             self.tk = self
             self._last_child_ids = {}
+            self._w = "."    # root widget name
+
 
         def title(self, *a, **kw): pass
         def configure(self, *a, **kw): pass
