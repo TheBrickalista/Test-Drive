@@ -20,8 +20,10 @@ jobs:
           python-version: "3.11"
           cache: "poetry"
 
-      - name: Install Poetry
-        run: pip install poetry
+      - name: Set up Poetry CLI
+        uses: actions/setup-poetry@v2
+        with:
+          poetry-version: latest
 
       - name: Build and publish to PyPI
         uses: JRubics/poetry-publish@v1.13
