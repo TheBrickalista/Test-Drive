@@ -9,7 +9,14 @@ def test_main_runs(monkeypatch):
     # Stub both Tk and Label so no tkinter internals run:
     #  - Tk() returns an object with only mainloop()
     #  - Label(...) returns an object with only pack()
-    monkeypatch.setattr(td.tk, "Tk", lambda: type("D", (), {"mainloop": lambda self: None})())
+    monkeypatch.setattr(
+    td.tk,
+    "Tk",
+    lambda: type("D", (), {
+        "mainloop": lambda self: None,
+        "title": lambda self, *a, **k: None
+    })()
+)
     monkeypatch.setattr(
         td.tk,
         "Label",
