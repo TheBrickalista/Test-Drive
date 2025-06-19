@@ -1,5 +1,6 @@
 # .github/workflows/test.yml
 name: 🧪 Test
+
 permissions:
   contents: read
 
@@ -12,36 +13,31 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 15            # abort if tests hang or run too long
+    timeout-minutes: 15
 
     steps:
       # 1) Checkout your code
       - name: Check out repository
         uses: actions/checkout@v4
 
-      # 2) (Optional) Headless Qt if you ever need a GUI
-      # You can remove this if you’re not using PyVista/Qt/Tk in CI.
-      - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@v3
-        with:
-          qt: true
-          pyvista: false
-
-      # 3) Install Poetry
-      - name: Install Poetry via pipx
-        run: pipx install poetry
-
-      # 4) Set up Python & cache dependencies
+      # 2) Set up Python & cache Poetry’s download cache
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: "poetry"
+          
 
-      # 5) Install your package plus dev-deps (pytest, coverage…)
+      # 3) Install Poetry (so `poetry` is on the PATH)
+      - name: Install Poetry
+        run: pip install poetry
+
+      # 4) Install *all* dependencies (runtime + dev)
+      #    Since you’re using a [tool.poetry.group.dev.dependencies] section,
+      #    add `--with dev` so pytest & coverage get installed.
       - name: Install dependencies
-        run: poetry install
+        run: poetry install --with dev
 
-      # 6a) Run your tests
+      # 5) Run your real tests
       - name: Run pytest
-        run: poetry run pytest
+        run: |
+          poetry run pytest --maxfail=1 --disable-warnings -q
