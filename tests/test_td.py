@@ -14,7 +14,7 @@ def test_main_runs(monkeypatch):
     "Tk",
     lambda: type("D", (), {
         "mainloop": lambda self: None,
-        "title": lambda self, *a, **k: None
+        "title": lambda self, *a, **k: None,
         "configure": lambda self, *a, **k: None   # <-- Add this line
     })()
 )
