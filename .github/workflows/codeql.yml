@@ -19,7 +19,7 @@ on:
     branches: [ "main" ]
     branches: [ "Production" ]
   schedule:
-    - cron: '24 3 * * 3'
+    - cron: '00 13 * * *
 
 jobs:
   analyze:
